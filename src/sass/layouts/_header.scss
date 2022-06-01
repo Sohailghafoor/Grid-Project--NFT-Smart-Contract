@@ -1,0 +1,46 @@
+.header {
+  height: 7rem;
+  background: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.5rem solid white;
+
+  &__logo-box {
+    flex: 1;
+    margin-left: 1.5rem;
+
+    &__logo {
+      height: $icon-height;
+      margin-right: 1rem;
+    }
+
+    &__text {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+
+  &__profile-box {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 2rem;
+
+    &__account,
+    &__theme {
+      height: $icon-height;
+      cursor: pointer;
+    }
+
+    &__account:hover,
+    &__theme:hover {
+      transform: translateY(-0.3rem);
+    }
+  }
+}

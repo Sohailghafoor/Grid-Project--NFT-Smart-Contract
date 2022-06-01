@@ -1,0 +1,120 @@
+.add-card-container {
+  width: 40vw;
+  height: 80vh;
+  background: linear-gradient(
+    to bottom,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 100;
+
+  &__heading {
+    margin-top: 2rem;
+  }
+
+  &__line {
+    border-bottom: 3px solid $color-white;
+    display: block;
+    width: 40%;
+    margin-top: 1rem;
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 4rem;
+  }
+
+  &__cross {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    margin-right: 1rem;
+    cursor: pointer;
+  }
+
+  &__grid-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+
+    &__1 {
+      flex: 1;
+
+      &-grid {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &-row {
+          margin: 0.5rem 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+
+          &__title {
+            flex: 1;
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: $color-white;
+          }
+
+          &__input {
+            flex: 1;
+            height: 3rem;
+          }
+        }
+      }
+    }
+
+    &__2 {
+      flex: 1;
+    }
+  }
+}
+
+.up-img {
+  height: 1.2rem;
+}
+
+.image-picker {
+  opacity: 0;
+  width: 0.5rem;
+}
+
+.input-field {
+  height: 3rem;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 0.7rem;
+}
+
+.input-area {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 0.7rem;
+}
+
+.u-mt-5 {
+  margin-top: 5.5rem;
+}
+
+.u-mt-10 {
+  margin-top: 1rem;
+}
+
+.u-ml-5 {
+  margin-left: 1.4rem;
+}
+
+.u-ml {
+  margin-left: 0.8rem;
+}

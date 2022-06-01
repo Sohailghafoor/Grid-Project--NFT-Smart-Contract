@@ -1,0 +1,47 @@
+.footer {
+  height: 7rem;
+  background: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  // position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 0.5rem solid white;
+
+  &__copyright-box {
+    flex: 1;
+
+    &__text {
+      margin-left: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+
+  &__buy-box {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__social-box {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2rem;
+
+    &__socail {
+      margin-right: 1rem;
+    }
+
+    &__socail:hover {
+      transform: translateY(-0.1rem);
+      cursor: pointer;
+    }
+  }
+}
