@@ -348,6 +348,107 @@
 .hidden {
   display: hidden; }
 
+.mint {
+  background-color: #000;
+  height: 95vh;
+  padding: 3rem; }
+
+.mint-container {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #7ed56f, #28b485);
+  text-align: center;
+  position: relative; }
+  .mint-container__heading {
+    color: white;
+    margin-bottom: 2rem; }
+  .mint-container__pricebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 32rem; }
+    .mint-container__pricebox__pricename {
+      margin-right: 1rem;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 700; }
+    .mint-container__pricebox__input {
+      background-color: transparent;
+      border: none;
+      text-align: center;
+      border-bottom: 1px solid #f2da89; }
+
+.mint-card-container {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%); }
+
+.mint-card {
+  height: 13rem;
+  width: 17rem;
+  border-radius: 1.3rem;
+  background: linear-gradient(to bottom right, #d0b856, #f2da89, #c47529, #c47529);
+  margin-bottom: 2rem;
+  position: relative;
+  box-shadow: 2px 2px 2px; }
+  .mint-card__heading {
+    color: #000;
+    font-size: 1.3rem;
+    font-weight: 700; }
+  .mint-card__price {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0.5rem 0; }
+  .mint-card__counter-box {
+    width: 10rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 8px;
+    background-color: #b3aeae;
+    border: 0.5px solid #777;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 2rem;
+    box-shadow: 2px 2px 3px; }
+    .mint-card__counter-box--inc {
+      text-decoration: none;
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-right: 1px solid black; }
+    .mint-card__counter-box--count {
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: 700; }
+    .mint-card__counter-box--dec {
+      text-decoration: none;
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-left: 1px solid black; }
+
+.seperator {
+  border-bottom: 2px solid #f2da89;
+  display: block;
+  width: 60rem;
+  margin-top: 36rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%); }
+
+.u-mt {
+  margin-top: 40rem; }
+
 .account {
   height: 76vh;
   background-color: #000;
