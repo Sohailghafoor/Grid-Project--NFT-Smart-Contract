@@ -276,6 +276,28 @@
 .u-margintop-1 {
   margin-top: 1rem; }
 
+.mint-modal {
+  width: 70vw;
+  height: 70vh;
+  background: linear-gradient(to bottom right, #7ed56f, #28b485);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-align: center;
+  color: white;
+  font-size: 1.3rem; }
+  .mint-modal__heading {
+    margin-top: 4rem; }
+  .mint-modal__cross {
+    color: black;
+    font-size: 1.8rem;
+    position: absolute;
+    right: 1.5rem;
+    font-weight: 700;
+    cursor: pointer; }
+
 .header {
   height: 7rem;
   background: linear-gradient(to right, #7ed56f, #28b485);
@@ -351,7 +373,8 @@
 .mint {
   background-color: #000;
   height: 95vh;
-  padding: 3rem; }
+  padding: 3rem;
+  position: relative; }
 
 .mint-container {
   width: 100%;
@@ -373,20 +396,22 @@
     .mint-container__pricebox__pricename {
       margin-right: 1rem;
       color: white;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: 700; }
     .mint-container__pricebox__input {
       background-color: transparent;
       border: none;
       text-align: center;
-      border-bottom: 1px solid #f2da89; }
+      border-bottom: 1px solid #f2da89;
+      font-size: 1.5rem;
+      width: 15rem; }
 
 .mint-card-container {
-  width: 40%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3rem;
+  column-gap: 3rem;
   position: absolute;
   left: 50%;
   transform: translate(-50%); }

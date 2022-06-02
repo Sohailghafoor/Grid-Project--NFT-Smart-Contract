@@ -1,0 +1,30 @@
+.mint-modal {
+  width: 70vw;
+  height: 70vh;
+  background: linear-gradient(
+    to bottom right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-align: center;
+  color: white;
+  font-size: 1.3rem;
+
+  &__heading {
+    margin-top: 4rem;
+  }
+
+  &__cross {
+    color: black;
+    font-size: 1.8rem;
+    position: absolute;
+    right: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
