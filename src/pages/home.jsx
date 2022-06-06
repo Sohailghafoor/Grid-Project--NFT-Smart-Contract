@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { getBoxes } from "../boxes/boxes";
 import Box from "../components/box";
 import "../css/styles.css";
+import { getBoxSizes } from "../boxes/boxSizes";
 
 const Home = () => {
-  const [boxes, setBoxes] = useState([]);
   const [xAxis, setXAxis] = useState(0);
   const [yAxis, setYAxis] = useState(0);
   const [id, setId] = useState(0);
   const [hiddenBar, setHiddenBar] = useState(false);
+  const [boxSize, setBoxSize] = useState([]);
 
   useEffect(() => {
-    setBoxes(getBoxes());
+    setBoxSize(getBoxSizes());
   }, []);
 
   const handleClick = (id, x, y) => {
@@ -29,15 +29,10 @@ const Home = () => {
   return (
     <main className="main">
       <div className="main__grid-box">
-        {boxes.map((box) => (
-          <div className="main__grid-box__box" key={box.id}>
-            <Box
-              width={box.width}
-              height={box.height}
-              id={box.id}
-              onClick={handleClick}
-            />
-          </div>
+        {boxSize.map((box) => (
+          // <div className="main__grid-box__box" key={box.id}>
+          <Box {...box} onClick={handleClick} />
+          // </div>
         ))}
       </div>
       <div className={hiddenBar ? "sidebar" : "hidden"}>

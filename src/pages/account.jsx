@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import AddCard from "../components/addCard";
-import "../css/styles.css";
 import zombie from "../assets/zombie.PNG";
 import upload from "../assets/upload.png";
 import Card from "../components/card";
 import { getCard, setCard } from "../boxes/card";
+import "../css/styles.css";
 
 const Account = () => {
   const [hidden, setHidden] = useState(false);
