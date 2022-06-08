@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/styles.css";
 
-const MintCard = ({ incr, decr, name, counter }) => {
+const MintCard = ({ incr, decr, name, counter, boxes }) => {
   return (
     <div className="mint-card">
       <div className="mint-card__heading">{name}</div>

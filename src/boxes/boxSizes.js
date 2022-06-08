@@ -1,4 +1,4 @@
-const boxSizes = [
+let boxSizes = [
   {
     id: 1,
     row1: 1,
@@ -1026,5 +1026,10 @@ const boxSizes = [
 ];
 
 export function getBoxSizes() {
+  boxSizes.forEach((box) => (box.isUsed = false));
   return boxSizes;
+}
+
+export function getSmallBoxes() {
+  return boxSizes.filter((box) => box.size === "small");
 }

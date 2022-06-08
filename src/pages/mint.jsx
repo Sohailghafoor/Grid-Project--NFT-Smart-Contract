@@ -1,24 +1,48 @@
 import React, { useEffect, useState } from "react";
-import { getMint } from "../boxes/mint";
+import { getBoxSizes, getSmallBoxes } from "../boxes/boxSizes";
 import MintCard from "../components/mintCard";
 import "../css/styles.css";
 
 const Mint = () => {
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [mintBoxes, setMintBoxes] = useState([]);
+
   const [smallCtr, setSmallCtr] = useState(0);
   const [mediumCtr, setMediumCtr] = useState(0);
   const [largeCtr, setLargeCtr] = useState(0);
   const [ultraCtr, setUltraCtr] = useState(0);
 
+  const [smallBoxes, setSmallBoxes] = useState([]);
+  const [smallUsed, setSmallUsed] = useState(0);
+
   const [hidden, setHidden] = useState(false);
 
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [mintData, setMintData] = useState([]);
-
   useEffect(() => {
-    setMintData(getMint());
+    setMintBoxes(getBoxSizes());
+    setSmallBoxes(getSmallBoxes());
   }, []);
 
+  const toMintSmall = () => {
+    let count = 0;
+    for (let i = smallUsed; i < smallBoxes.length; i++) {
+      if (count === smallCtr) {
+        setSmallUsed(smallCtr);
+        break;
+      }
+      // console.log(el);
+      count++;
+    }
+    console.log("small used: ", smallUsed);
+    // for (let el of smallBoxes)
+  };
+
   const mintNow = () => {
+    let totalCount = smallCtr;
+    if (totalCount > 3) {
+      alert("1 address can mint maximum 3 boxes!!");
+      return;
+    }
+    toMintSmall();
     setHidden((current) => !hidden);
   };
 
@@ -68,24 +92,28 @@ const Mint = () => {
             counter={smallCtr}
             incr={smallIncrement}
             decr={smallDecrement}
+            // boxes={smallBoxes}
           />
           <MintCard
             name="Medium"
             counter={mediumCtr}
             incr={mediumIncrement}
             decr={mediumDecrement}
+            // boxes={}
           />
           <MintCard
             name="Large"
             counter={largeCtr}
             incr={largeIncrement}
             decr={largeDecrement}
+            // boxes={largeBoxes}
           />
           <MintCard
             name="Ultra"
             counter={ultraCtr}
             incr={ultraIncrement}
             decr={ultraDecrement}
+            // boxes={megaBoxes}
           />
         </div>
         <div className="mint-container__pricebox">
