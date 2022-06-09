@@ -1,10 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import "../css/styles.css";
 import logo from "../assets/logo-white.png";
 import account from "../assets/user.png";
 import light from "../assets/light.png";
 
-const Header = () => {
+const Header = ({ accounts, setAccounts }) => {
+  const isConnected = Boolean(accounts[0]);
+
+
+  async function connectAccount(){
+    if (window.ethereum){
+        const accounts = await window.ethereum.request({
+            method: "eth_requestAccounts",
+        });
+        setAccounts(accounts);
+    }
+}
   return (
     <header className="header">
       <div className="header__logo-box">
@@ -17,9 +28,11 @@ const Header = () => {
           src={account}
           alt="not found"
         />
-        <a href="#" className="btn btn-oval">
+        {isConnected ? ( <p>Connected</p> ) : (<a href="#" className="btn btn-oval" onClick={connectAccount}>
           Connect Wallet
-        </a>
+        </a>)
+        }
+        
         <img
           className="header__profile-box__theme"
           src={light}

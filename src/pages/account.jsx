@@ -5,8 +5,13 @@ import upload from "../assets/upload.png";
 import Card from "../components/card";
 import { getCard, setCard } from "../boxes/card";
 import "../css/styles.css";
+import { id } from "ethers/lib/utils";
+import nftMy from'../NFTmy.json';
+import { ethers } from "ethers";
 
-const Account = () => {
+const nftMyAddress = "0x8fF47ec2f6209667FFA54042521eaAF42fA9F2F2";
+
+const Account = (accounts, setAccounts) => {
   const [hidden, setHidden] = useState(false);
   const [image, setImage] = useState(null);
   const [name, setName] = useState("");
@@ -18,10 +23,7 @@ const Account = () => {
     setCardData(getCard());
   }, []);
 
-  const addCard = () => {
-    setHidden((current) => !hidden);
-    setCard(name, bio, link, image);
-  };
+  
 
   const handleClick = () => {
     setHidden((currnet) => !hidden);
@@ -45,6 +47,38 @@ const Account = () => {
   const handleLink = (event) => {
     setLink(event.target.value);
   };
+
+async function addCard(){
+  setHidden((current) => !hidden);
+  setCard(name, bio, link, image);
+    if(window.ethereum){
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+            nftMyAddress,
+            nftMy.abi,
+            signer
+        );
+        console.log('contract: ', contract);
+        try {
+          
+         // const response = await contract.countBox(smallCtr, mediumCtr, largeCtr, ultraCtr);
+          //console.log('response:', response);
+  
+             const response = await contract.UpdateNewURI(link,name);
+             console.log('response:', response);
+        } catch (err) {
+            console.log("error: ", err)
+        }
+    }
+    setHidden((current) => !hidden);
+}
+
+
+
+
+
+
   return (
     <main className="account">
       <div className="account__card-container">
@@ -66,7 +100,7 @@ const Account = () => {
               <div className="add-card-container__grid-row__1-grid">
                 <div className="add-card-container__grid-row__1-grid-row">
                   <div className="add-card-container__grid-row__1-grid-row__title">
-                    Name:
+                    ID:
                   </div>
                   <div className="add-card-container__grid-row__1-grid-row__input">
                     <input

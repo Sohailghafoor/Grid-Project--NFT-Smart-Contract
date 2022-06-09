@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { getBoxSizes, getSmallBoxes } from "../boxes/boxSizes";
 import MintCard from "../components/mintCard";
+import nftMy from'../NFTmy.json';
+import { ethers } from "ethers";
 import "../css/styles.css";
 
-const Mint = () => {
+const nftMyAddress = "0x8fF47ec2f6209667FFA54042521eaAF42fA9F2F2";
+
+const Mint = ({accounts, setAccounts}) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [mintBoxes, setMintBoxes] = useState([]);
 
@@ -13,7 +17,7 @@ const Mint = () => {
   const [ultraCtr, setUltraCtr] = useState(0);
 
   const [smallBoxes, setSmallBoxes] = useState([]);
-  const [smallUsed, setSmallUsed] = useState(0);
+  //const [smallUsed, setSmallUsed] = useState(0);
 
   const [hidden, setHidden] = useState(false);
 
@@ -22,29 +26,58 @@ const Mint = () => {
     setSmallBoxes(getSmallBoxes());
   }, []);
 
-  const toMintSmall = () => {
-    let count = 0;
-    for (let i = smallUsed; i < smallBoxes.length; i++) {
-      if (count === smallCtr) {
-        setSmallUsed(smallCtr);
-        break;
-      }
-      // console.log(el);
-      count++;
-    }
-    console.log("small used: ", smallUsed);
-    // for (let el of smallBoxes)
-  };
+  // const toMintSmall = () => {
+  //   let count = 0;
+  //   for (let i = smallUsed; i < smallBoxes.length; i++) {
+  //     if (count === smallCtr) {
+  //       setSmallUsed(smallCtr);
+  //       break;
+  //     }
+  //     // console.log(el);
+  //     count++;
+  //   }
+  //   console.log("small used: ", smallUsed);
+  //   // for (let el of smallBoxes)
+  // };
 
-  const mintNow = () => {
-    let totalCount = smallCtr;
-    if (totalCount > 3) {
-      alert("1 address can mint maximum 3 boxes!!");
-      return;
+
+  ///function mint
+  async function mintNow(){
+    if(window.ethereum){
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+            nftMyAddress,
+            nftMy.abi,
+            signer
+        );
+        console.log('contract: ', contract);
+        try {
+          
+         const response = await contract.countBox(smallCtr, mediumCtr, largeCtr, ultraCtr,0);
+         console.log('response:', response);
+  
+          //    const responses = await contract.safeMint((smallCtr+mediumCtr+largeCtr+ultraCtr),smallCtr, mediumCtr, largeCtr, ultraCtr);
+          //  //for call two function  <a href="#" onClick={() => { func1(); func2();}}>Test Link</a>
+
+          //    console.log('response:', responses);
+        } catch (err) {
+            console.log("error: ", err)
+        }
     }
-    toMintSmall();
     setHidden((current) => !hidden);
-  };
+}
+///// mint
+
+  // const mintNow = () => {
+  //   let totalCount = smallCtr;
+  //   if (totalCount > 3) {
+  //     alert("1 address can mint maximum 3 boxes!!");
+  //     return;
+  //   }
+  //   toMintSmall();
+  //   setHidden((current) => !hidden);
+  // };
 
   const handleCross = () => {
     setHidden((current) => !hidden);
