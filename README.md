@@ -57,6 +57,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
+
+
+# Getting Started Ropsten Test Etherscane
+
+
+**Contract Deploy Address : 0x8fF47ec2f6209667FFA54042521eaAF42fA9F2F2
+**
+
+# Ropsten Test Etherscane Deployed and Publish:
+**
+https://ropsten.etherscan.io/address/0x8fF47ec2f6209667FFA54042521eaAF42fA9F2F2
+**
+
 ### Advanced Configuration
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
