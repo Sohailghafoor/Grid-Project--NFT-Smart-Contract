@@ -65,10 +65,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 **# Getting Started Ropsten Test Etherscane Ropsten Test Etherscane Deployed and Publish:
 **
+
 **This is Complete Smart Contract Deploy and Publish Fullfiled all Requirements **
+
 **Successfully submitted source code for contract: 0x1798F833c0f1A47C97E8744F37ec21FAf491Ceff
 **
+
 **Successfully verified contract NFTmy on Etherscan.
+
 **https://ropsten.etherscan.io/address/0x1798F833c0f1A47C97E8744F37ec21FAf491Ceff
 
 ********This is Also Smart contract for testing********
