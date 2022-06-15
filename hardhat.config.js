@@ -23,7 +23,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 
-const REACT_APP_PRIVATE_KEY ="0xe6471b44975f63f53a1cd6b6d1ceeb2657139c9a1395091f4474017c6b4f71c7";
+const REACT_APP_PRIVATE_KEY ="0xa2c088ef3dae1bf877102cafd30c5486bd8f38e0744a0f857a5cf45fcf755a33";
 const etherscanAPIKey = "27GY3QA4QHPSWIU759AHMYIP96PI2HAEUZ";
 module.exports = {
   defaultNetwork: "ropsten",
@@ -34,7 +34,7 @@ module.exports = {
       accounts: [REACT_APP_PRIVATE_KEY]
     },
   },
-  etherscan: {
+  etherscan: { //0xd5AA0B46A886a8685F63C81050A476220cBEce00 deploy address
     apiKey: etherscanAPIKey,
   },
   solidity: {
@@ -42,7 +42,7 @@ module.exports = {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 1000
+        runs: 2000
       }
     }
   },

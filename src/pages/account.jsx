@@ -9,12 +9,12 @@ import { id } from "ethers/lib/utils";
 import nftMy from'../NFTmy.json';
 import { ethers } from "ethers";
 
-const nftMyAddress = "0x8fF47ec2f6209667FFA54042521eaAF42fA9F2F2";
+const nftMyAddress = "0x1798F833c0f1A47C97E8744F37ec21FAf491Ceff";
 
 const Account = (accounts, setAccounts) => {
   const [hidden, setHidden] = useState(false);
   const [image, setImage] = useState(null);
-  const [name, setName] = useState("");
+  const [id, setName] = useState("");
   const [bio, setBio] = useState("");
   const [link, setLink] = useState("");
   const [cardData, setCardData] = useState([]);
@@ -50,7 +50,7 @@ const Account = (accounts, setAccounts) => {
 
 async function addCard(){
   setHidden((current) => !hidden);
-  setCard(name, bio, link, image);
+  setCard(id, bio, link, image);
     if(window.ethereum){
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
@@ -65,7 +65,7 @@ async function addCard(){
          // const response = await contract.countBox(smallCtr, mediumCtr, largeCtr, ultraCtr);
           //console.log('response:', response);
   
-             const response = await contract.UpdateNewURI(link,name);
+             const response = await contract.UpdateNewURI(link, id, bio,"Hi Sohail",image);
              console.log('response:', response);
         } catch (err) {
             console.log("error: ", err)
@@ -106,8 +106,8 @@ async function addCard(){
                     <input
                       className="input-field"
                       type="text"
-                      name="name"
-                      value={name}
+                      name="id"
+                      value={id}
                       onChange={handleName}
                     />
                   </div>

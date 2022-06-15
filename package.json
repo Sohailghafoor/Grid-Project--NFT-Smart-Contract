@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "dotenv": "^16.0.1",
+    "hardhat-log-remover": "^2.0.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
@@ -46,7 +47,8 @@
     "chai": "^4.2.0",
     "ethereum-waffle": "^3.0.0",
     "ethers": "^5.0.0",
-    "hardhat": "^2.9.7",
+    "hardhat": "^2.9.9",
+    "mocha": "^10.0.0",
     "node-sass": "^7.0.1"
   }
 }

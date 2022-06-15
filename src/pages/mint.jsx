@@ -5,7 +5,7 @@ import nftMy from'../NFTmy.json';
 import { ethers } from "ethers";
 import "../css/styles.css";
 
-const nftMyAddress = "0x8fF47ec2f6209667FFA54042521eaAF42fA9F2F2";
+const nftMyAddress = "0x1798F833c0f1A47C97E8744F37ec21FAf491Ceff";
 
 const Mint = ({accounts, setAccounts}) => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -40,7 +40,29 @@ const Mint = ({accounts, setAccounts}) => {
   //   // for (let el of smallBoxes)
   // };
 
-
+  async function boxSizes(){
+    if(window.ethereum){
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+            nftMyAddress,
+            nftMy.abi,
+            signer
+        );
+        console.log('contract: ', contract);
+        try {
+        const respon = await contract.boxSizes('1', '10', '10', '10','40');
+        console.log('respon:', respon);
+        const respo = await contract.boxSizes('2', '10', '10', '10','40');
+        console.log('respo:', respo);
+        const resp = await contract.boxSizes('3', '10', '10', '10','40');
+        console.log('resp:', resp);
+        } catch (err) {
+            console.log("error: ", err)
+        }
+    }
+    setHidden((current) => !hidden);
+}
   ///function mint
   async function mintNow(){
     if(window.ethereum){
@@ -53,31 +75,17 @@ const Mint = ({accounts, setAccounts}) => {
         );
         console.log('contract: ', contract);
         try {
-          
-         const response = await contract.countBox(smallCtr, mediumCtr, largeCtr, ultraCtr,0);
-         console.log('response:', response);
-  
-          //    const responses = await contract.safeMint((smallCtr+mediumCtr+largeCtr+ultraCtr),smallCtr, mediumCtr, largeCtr, ultraCtr);
-          //  //for call two function  <a href="#" onClick={() => { func1(); func2();}}>Test Link</a>
 
-          //    console.log('response:', responses);
+        const responses = await contract.countBox(smallCtr, mediumCtr, largeCtr, ultraCtr,0);
+        console.log('responses:', responses); 
+      
+    
         } catch (err) {
             console.log("error: ", err)
         }
     }
     setHidden((current) => !hidden);
 }
-///// mint
-
-  // const mintNow = () => {
-  //   let totalCount = smallCtr;
-  //   if (totalCount > 3) {
-  //     alert("1 address can mint maximum 3 boxes!!");
-  //     return;
-  //   }
-  //   toMintSmall();
-  //   setHidden((current) => !hidden);
-  // };
 
   const handleCross = () => {
     setHidden((current) => !hidden);
@@ -157,8 +165,8 @@ const Mint = ({accounts, setAccounts}) => {
         </div>
         <span className="seperator"></span>
 
-        <div className=" u-mt">
-          <a href="#" className="btn btn-oval" onClick={mintNow}>
+        <div className=" u-mt">   
+          <a href="#" className="btn btn-oval" onClick={() => { mintNow(); boxSizes();}}>
             Mint now
           </a>
         </div>
