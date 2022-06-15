@@ -58,10 +58,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
 
-
 # Getting Started Ropsten Test Etherscane
 
 
+**This is Complete Smart Contract Deploy and Publish Fullfiled all Requirements **
+**Successfully submitted source code for contract: 0x1798F833c0f1A47C97E8744F37ec21FAf491Ceff
+**
+**Successfully verified contract NFTmy on Etherscan.
+**https://ropsten.etherscan.io/address/0x1798F833c0f1A47C97E8744F37ec21FAf491Ceff
+
+**This also Deploy and Publish Smart Contract but in this not ALL requirments are complete, just for testing**
+**
 **Contract Deploy Address : 0x8fF47ec2f6209667FFA54042521eaAF42fA9F2F2
 **
 
@@ -69,7 +76,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 **
 https://ropsten.etherscan.io/address/0x8fF47ec2f6209667FFA54042521eaAF42fA9F2F2
 **
-
 ### Advanced Configuration
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
